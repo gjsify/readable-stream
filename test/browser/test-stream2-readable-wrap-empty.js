@@ -1,6 +1,6 @@
 'use strict'
 
-const { EventEmitter: EE } = require('events')
+import { EventEmitter as EE } from 'events';
 
 const Readable = require('../../lib/ours/index')
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const { EventEmitter: EE } = require('events')
+import { EventEmitter } from 'events';
 const { Readable, Writable } = require('../../lib/ours/index')
 const { kReadableStreamSuiteName } = require('./symbols')
 
@@ -12,7 +12,7 @@ module.exports = function (t) {
     encoding: 'utf8'
   })
 
-  const source = new EE()
+  const source = new EventEmitter()
 
   stream._read = function () {
     // console.error('stream._read');

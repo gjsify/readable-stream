@@ -1,7 +1,6 @@
 // rollup.config.js
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import nodePolyfills from 'rollup-plugin-node-polyfills'
 
 export default {
     input: ['lib/ours/browser.js'],
@@ -13,10 +12,9 @@ export default {
     },
     plugins: [
         commonjs({ }),
-        nodePolyfills(),
         resolve({
             browser: true,
-            preferBuiltins: false,
+            preferBuiltins: true,
         }),
     ],
     external: []

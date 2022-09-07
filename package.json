@@ -1,5 +1,5 @@
 {
-  "name": "readable-stream-es",
+  "name": "@gjsify/readable-stream",
   "version": "4.1.0",
   "description": "Node.js Streams, a user-land copy of the stream library from Node.js",
   "homepage": "https://github.com/nodejs/readable-stream",
@@ -29,8 +29,8 @@
     "README.md"
   ],
   "browser": {
-    "util": "./lib/ours/util.js",
-    "./lib/ours/index.js": "./lib/ours/browser.js"
+    "./lib/ours/index.js": "./lib/ours/browser.js",
+    "util": "./lib/ours/util.js"
   },
   "scripts": {
     "build": "npx rollup -c rollup.config.js"
