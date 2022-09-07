@@ -1,6 +1,6 @@
 'use strict'
 
-const { format, inspect, AggregateError: CustomAggregateError } = require('./util')
+import { format, inspect, AggregateError as CustomAggregateError } from './util'
 
 /*
   This file is a reduced and adapted version of the main lib/internal/errors.js file defined at
@@ -114,7 +114,7 @@ function hideStackFrames(fn) {
   return fn
 }
 
-function aggregateTwoErrors(innerError, outerError) {
+function _aggregateTwoErrors(innerError, outerError) {
   if (innerError && outerError && innerError !== outerError) {
     if (Array.isArray(outerError.errors)) {
       // If `outerError` is already an `AggregateError`.
@@ -360,9 +360,18 @@ E('ERR_STREAM_UNSHIFT_AFTER_END_EVENT', 'stream.unshift() after end event', Erro
 E('ERR_STREAM_WRITE_AFTER_END', 'write after end', Error)
 E('ERR_UNKNOWN_ENCODING', 'Unknown encoding: %s', TypeError)
 
-module.exports = {
+const aggregateTwoErrors = hideStackFrames(_aggregateTwoErrors);
+
+export default {
   AbortError,
-  aggregateTwoErrors: hideStackFrames(aggregateTwoErrors),
+  aggregateTwoErrors,
+  hideStackFrames,
+  codes
+}
+
+export {
+  AbortError,
+  aggregateTwoErrors,
   hideStackFrames,
   codes
 }

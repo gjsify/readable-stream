@@ -280,7 +280,7 @@ function platformTimeout(ms) {
 }
 
 let knownGlobals = [
-  typeof AggregateError !== 'undefined' ? AggregateError : require('../../lib/ours/util').AggregateError,
+  typeof AggregateError !== 'undefined' ? AggregateError : require('../../lib/ours/util').default.AggregateError,
   typeof AbortController !== 'undefined' ? AbortController : require('abort-controller').AbortController,
   typeof AbortSignal !== 'undefined' ? AbortSignal : require('abort-controller').AbortSignal,
   typeof EventTarget !== 'undefined' ? EventTarget : require('event-target-shim').EventTarget,
