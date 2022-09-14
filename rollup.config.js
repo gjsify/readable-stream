@@ -13,7 +13,7 @@ export default {
     plugins: [
         commonjs({ }),
         resolve({
-            browser: true,
+            browser: false,
             preferBuiltins: true,
         }),
     ],
