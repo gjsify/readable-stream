@@ -34,6 +34,7 @@
   },
   "scripts": {
     "clear": "rm -rf out",
+    "print:name": "echo '@gjsify/readable-stream'",
     "build": "npx rollup -c rollup.config.js"
   },
   "dependencies": {
