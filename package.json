@@ -35,7 +35,9 @@
   "scripts": {
     "clear": "rm -rf out",
     "print:name": "echo '@gjsify/readable-stream'",
-    "build": "npx rollup -c rollup.config.js"
+    "build": "npx rollup -c rollup.config.js",
+    "git:upstream:init": "git remote add upstream https://github.com/nodejs/readable-stream.git || exit 0",
+    "git:upstream:merge": "yarn git:upstream:init && git fetch upstream && git merge upstream/main"
   },
   "dependencies": {
     "abort-controller": "^3.0.0"
