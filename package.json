@@ -23,21 +23,21 @@
     "url": "https://github.com/nodejs/readable-stream/issues"
   },
   "type": "module",
-  "main": "out/browser.js",
-  "module": "out/browser.js",
+  "main": "out/index.js",
+  "module": "out/index.js",
   "files": [
     "out",
     "LICENSE",
     "README.md"
   ],
   "browser": {
-    "./lib/ours/index.js": "./lib/ours/browser.js",
     "util": "./lib/ours/util.js"
   },
   "scripts": {
     "clear": "rm -rf out",
     "print:name": "echo '@gjsify/readable-stream'",
     "build": "npx rollup -c rollup.config.js",
+    "build:gjsify": "gjsify build --library lib/**/*.{ts,js}",
     "git:upstream:init": "git remote add upstream https://github.com/nodejs/readable-stream.git || exit 0",
     "git:upstream:merge": "yarn git:upstream:init && git fetch upstream && git merge upstream/main"
   },
@@ -49,6 +49,7 @@
     "process": "^0.11.10"
   },
   "devDependencies": {
+    "@gjsify/cli": "workspace:^",
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "rollup-plugin-node-polyfills": "^0.2.1"

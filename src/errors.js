@@ -1,6 +1,7 @@
 'use strict'
 
-import { format, inspect, AggregateError as CustomAggregateError } from './util'
+import { format, inspect, AggregateError as CustomAggregateError } from './util';
+import { hideStackFrames } from '@gjsify/node-internal';
 
 /*
   This file is a reduced and adapted version of the main lib/internal/errors.js file defined at
@@ -104,14 +105,6 @@ function E(code, message, Base) {
   NodeError.prototype[kIsNodeError] = true
 
   codes[code] = NodeError
-}
-
-function hideStackFrames(fn) {
-  // We rename the functions that will be hidden to cut off the stacktrace
-  // at the outermost one
-  const hidden = nodeInternalPrefix + fn.name
-  Object.defineProperty(fn, 'name', { value: hidden })
-  return fn
 }
 
 function _aggregateTwoErrors(innerError, outerError) {
