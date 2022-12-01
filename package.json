@@ -36,7 +36,7 @@
   "scripts": {
     "clear": "rm -rf out",
     "print:name": "echo '@gjsify/readable-stream'",
-    "build": "yarn build:gjsify",
+    "build": "yarn print:name && yarn build:gjsify",
     "build:gjsify": "gjsify build --library lib/**/*.{ts,js}",
     "git:upstream:init": "git remote add upstream https://github.com/nodejs/readable-stream.git || exit 0",
     "git:upstream:merge": "yarn git:upstream:init && git fetch upstream && git merge upstream/main"
